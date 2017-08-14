@@ -18,9 +18,9 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
   burger.insertOne([
-    "name", "devoured"
+    "burger_name", "devoured"
   ], [
-    req.body.name, req.body.devoured
+    req.body.name, 0
   ], function() {
     res.redirect("/");
   });
@@ -32,7 +32,7 @@ router.put("/:id", function(req, res) {
   console.log("condition", condition);
 
   burger.updateOne({
-    devoured: req.body.devoured
+    devoured: req.body.eatButton
   }, condition, function() {
     res.redirect("/");
   });
